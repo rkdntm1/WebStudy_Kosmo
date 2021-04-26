@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>form 공부</title>
+</head>
+<body>
+	<form action="result.html" method="get">
+		<fieldset>
+			<legend> 인적사항 </legend>
+				이름: <input type="text" value="필수" required="required"><br>
+				나이: <input type="text" value="필수아님"><br>
+				<input type="submit">
+				<input type="reset" onclick="alert('초기화한척')">
+				<input type="hidden" name="변수이름" value="변수값">
+				<input type="button" value="누르시오" onclick="alert('이벤트 발생')">
+				<input type="image" id = "image" alt ="버튼"
+						src="char3.gif" width="200" height="200">
+		</fieldset>
+	</form>	
+	<form action="result.html" method="get">
+		<fieldset>
+			<legend> 기본 회원가입 </legend>
+				이름: <input type="text" name="name"><br>
+            	주소: <input type="text" name="address"><br>
+            	email: <input type="email" name="email" required ><br>
+            	<input type="radio" name="gender" value="Male"> Male<br>
+            	<input type="radio" name="gender" value="Female"> Female<br>
+            	<input type="submit" value="Send">
+            	<input type="reset">
+		</fieldset>
+	</form>
+	<p id="a1">dasda dsad</p>
+	<p id="a2">dasda dsad</p>
+	<p id="a3">dasda dsad</p>
+	
+</body>
+</html>

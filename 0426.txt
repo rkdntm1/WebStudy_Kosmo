@@ -1,0 +1,31 @@
+H        	          T         M       	   	 		L
+hyper(저쪽의)    text       markup(<메타용어> ~~ <메타용어>)	language
+                                =xml(extended markup language)
+                                =데이터에 대한 메타용어(에노테이션)
+		        =클래스네임, 칼럼네임
+		        =부가적인 정보
+		        종류정의서 - DTD(Data Type Definition)
+		        ex) <name> 홍길동 </name>
+
+보여주는 기능(randering : 그려주다) = Browser (ex. chrome)
+-- 분할 -- 
+-내용
+-표현(ex 색칠하기, 굵게, ... )
+-동작(ex 클릭이벤트, ...)
+
+-- 정복(결합) --
+-선택자(ex. 어떤 내용에서 어떤 동작을 했으면 거기에서 표현을 바꿔라)
+
+1분토크 : html이 뭔가? text가 하이퍼링 되고 있는거고 그 기능이 되기 위해 마크업시켰습니다.
+그걸 보여주기위해 브라우져를 사용하며 보여주는 기능은 분할적으로 내용 표현 동작으로 되어
+...
+
+
+HTTP (HyperText Transfer Protocol) 
+-transfer 주거니 받거니
+-protocol 처리 절차 
+
+head - body 
+         (길이제약 x)
+
+교수님추천책) 생각의 탄생 -- > 괴델에셔바흐
