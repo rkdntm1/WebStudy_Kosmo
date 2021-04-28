@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		var computerNumber = 34; //컴퓨터 생성 숫자
+		var guessCounter = 0; //추측횟수
+		
+		function guess(){
+			var hintMsg = ""; //힌트			
+			var number = parseInt(document.getElementById("number").value);			
+			guessCounter++;
+			
+			//성능 면에서 확률상에서 <, > 먼저 하고 ==로 하는게 더 좋다
+			if (number < computerNumber) hintMsg = "낮습니다.";
+			else if (number > computerNumber) hintMsg = "높습니다.";
+			else hintMsg = "성공";
+						
+			document.getElementById("result").value = hintMsg;
+			document.getElementById("guesses").value = guessCounter;
+			return true;
+		}
+	</script>
+</head>
+<body>
+	<h2>숫자 맞추기 게임</h2>
+	컴퓨터가 생성한 숫자를 맞추는게임 1부터 100사이
+	<form>
+		숫자:<input id="number">
+		<input type="button" value="제출" onclick="guess()"><br>
+		추측횟수:<input id="guesses"><br>
+		결과:<input id="result">	
+	</form>
+</body>
+</html>

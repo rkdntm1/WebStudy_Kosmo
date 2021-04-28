@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var ROOT = 5;
+	var chars = new Array(); // 2차원 배열
+	function makeTable() {
+		for (i = 0; i < ROOT; i++){
+			row = new Array();
+			for (j = 0; j < ROOT; j++){
+				// 97 : 'a'
+				row[j] = String.fromCharCode(97 + i * ROOT + j); 
+			}
+			chars[i] = row;
+		}				
+	}
+	makeTable();
+	
+	function displayTable() {
+		document.write("<table>");
+		for (i = 0; i < ROOT; i++){
+			document.write("<tr>");
+			for (j = 0; j < ROOT; j++){
+				document.write("<td>");
+				document.write(chars[i][j]); 
+				document.write("</td>");
+			}
+			document.write("</tr>");
+		}				
+		document.write("</table>");
+	}
+	
+	function rotate() {
+		document.write("<table>");
+		tp = ROOT - 1; //변곡점
+		for (i = 0; i < ROOT * 2 - 1; i++){
+			document.write("<tr>");
+			document.write("<td>");
+			if (i < ROOT){
+				document.write(chars[i][0]);
+			} else {
+				document.write(chars[tp][i - tp]);
+			}
+			document.write("</td>");
+			document.write("</tr>");
+		}
+		document.write("</table>")
+		
+	}
+</script>
+</head>
+<body>
+	<script>
+	displayTable();	
+	</script>
+	<input type="button" value="비틀기" onclick="rotate()">
+</body>
+</html>

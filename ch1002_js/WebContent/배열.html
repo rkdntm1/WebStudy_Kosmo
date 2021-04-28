@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		var i;
+		var fruits = new Array(); // 배열 만들기(크기 지정안해도 된 - 유연성)
+		fruits[0] = "Apple";
+		fruits[1] = "Banana";
+		fruits[2] = "Orange";
+		
+		for (i = 0; i < fruits.length + 5; i++){ // 유연성 aiob가 안일어남
+			document.write(fruits[i] + "<br>")
+		}
+	</script>
+</body>
+</html>

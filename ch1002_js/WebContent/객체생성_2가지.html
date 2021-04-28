@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		//객체 상수를 통한 객체 생성
+		var uCar = {
+			model: "520d",
+			speed: 60,
+			color: "red",
+			brake: function() {this.speed -=10;},
+			accel: function() {this.speed +=10;}
+		};
+		//생성자를 이용한 객체 생성 
+		function Car(model, speed, color){
+			this.model = model;
+			this.speed = speed;
+			this.color = color;
+			this.brake = function() {this.speed -=10;}
+			this.accel = function() {this.speed +=10;}
+		}
+		myCar = new Car("SM5", 60, "black");
+		document.write("모델: " + myCar.model + "속도: " + myCar.speed + "<br>");
+		myCar.accel();
+		document.write("모델: " + myCar.model + "속도: " + myCar.speed + "<br>");
+		myCar.brake();
+		document.write("모델: " + myCar.model + "속도: " + myCar.speed + "<br>");
+		
+		document.write("<br>모델: " + uCar.model + "속도: " + uCar.speed + "<br>");
+		uCar.accel();
+		document.write("모델: " + uCar.model + "속도: " + uCar.speed + "<br>");
+		uCar.brake();
+		document.write("모델: " + uCar.model + "속도: " + uCar.speed + "<br>");
+	</script>
+</body>
+</html>
