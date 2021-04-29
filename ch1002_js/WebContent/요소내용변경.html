@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		function get(){
+			var val = document.getElementById("first").innerHTML;
+			alert(val);
+		}
+		function set(s){
+			document.getElementById("first").innerHTML = s;
+		}
+	</script>
+</head>
+<body>
+	<div id="first" name="first2"> 여기가 dive로 선언된 곳</div>
+	<a href="#" onclick="get()">div 요소 내용 출력하기</a><br>
+	<a href="#" onclick="set('변경해봤다')">div 요소 내용 변경하기</a>
+</body>
+</html>

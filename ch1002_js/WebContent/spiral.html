@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//생성자 만들기
+	function Cell(rIdx, cIdx, lbl) {
+		this.rIdx = rIdx;
+		this.cIdx = cIdx;
+		this.lbl =lbl;
+		this.visited = false;
+	}
+	
+	Cell.prototype.getLbl = function() {
+		this.visited = true;
+		return this.lbl;		
+		};
+	Cell.prototype.isVisit = function() {
+		return this.visited;		
+		};		
+	
+		
+	// 동서남북 방향값을 지정하기 
+	var DirectionEnum = [
+		{rowDelta: 0, colDelta: 1},		
+		{rowDelta: 1, colDelta: 0},
+		{rowDelta: 0, colDelta: -1},
+		{rowDelta: -1, colDelta: 0}
+	];
+	
+	/*
+	a(0,0)	b(0,1)	c(0,2)	d(0,3)	e(0,4)
+	f(1,0)	g(1,1)	h(1,2)	i(1,3)	j(1,4)
+	k(2,0)	l(2,1)	m(2,2)	n(2,3)	o(2,4)
+	p(3,0)	q(3,1)	r(3,2)	s(3,3)	t(3,4)
+	u(4,0)	v(4,1)	w(4,2)	x(4,3)	y(4,4)
+	*/
+	var ROOT = 5;
+	var cells = new Array(); // 2차원 배열만들기
+	function makeTable() {
+		for (i = 0; i < ROOT; i++){
+			row = new Array(); // js는 chars[][]형식으로 직접 만드는게 안됨 -> 배열에 배열을 넣어서 2차원으로 만들기
+			for (j = 0; j < ROOT; j++){
+				// 97 : 'a'
+				row[j] = new Cell(i, j, String.fromCharCode(97 + i * ROOT + j));
+			}
+			cells[i] = row;
+		}				
+	}
+	makeTable();
+	
+	function canVisit(nextRow, nextCol) {
+		//aiob가 나는 상황이면 방문 x
+		if (nextRow < 0 || nextRow >= ROOT || nextCol < 0 || nextCol >= ROOT){
+			return false;
+		}
+		// 방문한적이 없으면 방문가능
+		return ! cells[nextRow][nextCol].isVisit();
+	}
+	
+	function spiral() {
+		row = 0;
+		col = 0;
+		document.write(cells[row][col].getLbl());
+		while (true) {
+			debugger;
+			var wasGone = false; 
+			//동... 남... 서... 북
+			for (dir in DirectionEnum){
+				while (true) {
+					nextRow = row + DirectionEnum[dir].rowDelta;
+					nextCol = col + DirectionEnum[dir].colDelta;
+					res = canVisit(nextRow, nextCol);
+					if (res) { // 다음번 이동값이 방문할 수 있을때
+						row = nextRow;
+						col = nextCol;
+						document.write(cells[row][col].getLbl()); //출력
+						wasGone = true;
+					} else {
+						break;
+					}
+				}
+			}
+			if (! wasGone){
+				break;
+			}
+		}
+	}
+</script>
+</head>
+<body>
+	<input type="button" value="배배꼬아풀기" onclick="spiral()">
+</body>
+</html>
