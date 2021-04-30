@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+	 /* removeChild()*/
+		function remove(){
+			var par = document.getElementById("parent");
+			var child = document.getElementById("target1");
+			par.removeChild(child);
+		}	
+	</script>
+</head>
+<body>
+	<div id="parent">
+		<p id="target1">첫번째 단락</p>
+		<p id="target2">두번째 단락</p>
+	</div>
+	<input type="button" onclick="remove()" value="누르시오">
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	canvas {
+		background: yellow;
+		border: 1px dotted black;
+	}
+</style>
+<script>
+	//var context
+	var dx = 5;
+	var dy = 5;
+	var x = 100;
+	var y = 100;
+	
+	function draw(){
+		canvas = document.getElementById("myCanvas");
+		context = canvas.getContext("2d"); //붓
+		context.clearRect(0, 0, 300, 200);
+		context.beginPath(); // 그리기시작
+		context.fillStyle = "red";
+		context.arc(x, y, 20, 0, Math.PI * 2, true);
+		context.closePath();
+		context.fill();
+		if(x < (0 + 20) || x > (300 - 20))
+			dx = -dx;		
+		if(y < (0 + 20) || y > (200 - 20))
+			dy = -dy;
+		x += dx;
+		y += dy;	
+	}	
+	setInterval(draw, 33) //0.033초 마다 그리기함수
+	
+</script>
+</head>
+<body>
+	<canvas id="myCanvas" width="300" height="200"></canvas>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	regExps = new Map();
+	regExps.set("이메일 체크 정규식", /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i);
+	regExps.set("핸드폰번호 정규식", /^\d{3}-\d{3,4}-\d{4}$/);
+	regExps.set("일반 전화번호 정규식", /^\d{2,3}-\d{3,4}-\d{4}$/);
+	
+	function isValidInput(checkTarget) {
+		regExp = regExps.get(checkTarget.id);
+		if (checkTarget.value.match(regExp)) {
+			alert('올바릅니다.');
+			return true;
+		} else {
+			checkTarget.focus();
+			alert('틀립니다.');
+			return false;
+		}
+	}	
+</script>
+</head>
+<body>
+	이메일:<input type="text" id="이메일 체크 정규식"><input type="button" onclick="isValidInput(this.previousSibling);" value="검사"><br>
+	핸드폰번호:<input type="text" id="핸드폰번호 정규식"><input type="button" onclick="isValidInput(this.previousSibling);" value="검사"><br>
+	전화번호:<input type="text" id="일반 전화번호 정규식"><input type="button" onclick="isValidInput(this.previousSibling);" value="검사">
+</body>
+</html>

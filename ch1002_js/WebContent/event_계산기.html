@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		var ex = "";
+		function add(e){
+			ex += e;
+			document.getElementById("display").value = ex;
+		}
+		
+		function 지우기(){
+			ex = "";
+			document.getElementById("display").value = "0";
+		}
+		
+		function 계산하기(){
+			document.getElementById("display").value = eval(ex); //eval : 문자열내용을 계산해주는 메소드
+		}
+	</script>	
+</head>
+<body>
+	diplay <input id="display" value="0" size='20'>
+	<br>
+	<input type="button" value="7" onclick="add('7')";>
+	<input type="button" value="8" onclick="add('8')";>
+	<input type="button" value="9" onclick="add('9')";>
+	<input type="button" value="/" onclick="add('/')";>
+	<br>
+	<input type="button" value="4" onclick="add('4')";>
+	<input type="button" value="5" onclick="add('5')";>
+	<input type="button" value="6" onclick="add('6')";>
+	<input type="button" value="*" onclick="add('*')";>
+	<br>
+	<input type="button" value="1" onclick="add('1')";>
+	<input type="button" value="2" onclick="add('2')";>
+	<input type="button" value="3" onclick="add('3')";>
+	<input type="button" value="-" onclick="add('-')";>
+	<br>
+	<input type="button" value="0" onclick="add('0')";>
+	<input type="button" value="+" onclick="add('+')";>
+	<br>
+	<input type="button" value="Clear" onclick="지우기()";>
+	<input type="button" value="Enter" onclick="계산하기()";>
+</body>
+</html>

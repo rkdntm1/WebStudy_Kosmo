@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		function checkLength(min, max){
+			var e = document.getElementById('name').value;
+			if (e.length >= min && e.length <= max){
+				return true
+			} else {
+				alert(min + " 문자와 " + max + " 문자 사이로 입력하시오")
+				document.getElementById('name').focus();
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<form>
+	이름(6-8 문자):<input type="text" id="name">
+	<input type="button" value="확인" onclick="checkLength(6, 8)">
+	</form>
+	
+</body>
+</html>

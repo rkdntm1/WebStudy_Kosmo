@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	canvas {
+		background: yellow;
+		border: 1px dotted black;
+	}
+</style>
+<script>
+	class Table {
+	    constructor(w, h) {
+	        this.width = w; 		// 폭
+	        this.height = h;		// 길이
+	    }
+	    
+	    getWidth() {
+	    	return this.width;
+	    }
+	    
+	    getHeight() {
+	    	return this.height;	
+	    }
+	    
+	    draw(context){
+	    	context.clearRect(0, 0, this.width, this.height);
+	    }
+	}
+	
+	class Ball {
+	    constructor(x, y, radius, table) {
+	        this.x = x; 			// 중심점
+	        this.y = y;				// 중심점
+	        this.radius = radius;	// 반지름
+	        this.table = table;		// 이 공이 있는 테이블
+	        this.dx = 5;			// 공 현재 진행 방향
+	        this.dy = 5;
+	    }
+	    
+	    draw(context) {
+	    	context.beginPath(); // 그리기시작
+			context.fillStyle = "red";
+	    	context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+			context.closePath();
+			context.fill();
+			this.chgPos();
+	    }
+	    
+	    chgPos() {
+	    	// 좌측 경계에 부딪히다.					우측 경계에 부딪히다.
+	    	if(this.x < (0 + this.radius) || this.x > (table.getWidth() - this.radius))
+	    		this.dx = -this.dx;		
+	    	// 상단 경계에 부딪히다.					하단 경계에 부딪히다./
+			if(this.y < (0 + this.radius) || this.y > (table.getHeight() - this.radius))
+				this.dy = -this.dy;
+			this.x += this.dx;
+			this.y += this.dy;    	
+	    }	
+	}
+
+	let table;
+	let ball;
+	var canvas;
+	var context;
+	
+	function init(){
+		canvas = document.getElementById("myCanvas");
+		context = canvas.getContext("2d"); //붓		
+		table = new Table(canvas.width, canvas.height);
+		ball = new Ball(100, 100, 10, table); // ball 객체 생성
+	}
+	
+	function draw(){
+		table.draw(context); //테이블 그리기		
+		ball.draw(context); // 공 그리기
+	}	
+	setInterval(draw, 33) //초당 30회정도로 그리면서 움직이는 그림
+	
+</script>
+</head>
+<body onload="init()">
+	<canvas id="myCanvas" width="600" height="500"></canvas>
+</body>
+</html>

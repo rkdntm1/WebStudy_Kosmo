@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		var id;
+		function changeColor() {
+			id = setInterval(flashText, 500);
+		}
+		function flashText() {
+			var elem = document.getElementById("target");
+			elem.style.color = (elem.style.color == "red")? "blue":"red";
+			elem.style.backgroundColor = (elem.style.backgroundColor == "green")? "red":'green'; 
+		}
+		function stopfn(){
+			clearInterval(id);
+		}
+	</script>
+</head>
+<body onload="changeColor();" >
+	<div id="target">
+		<p> 현재 텍스트를 주기에 맞춰서 계속 변경하자</p>
+	</div>
+	<input type="button" value="스톱" onclick="stopfn();">
+</body>
+</html>

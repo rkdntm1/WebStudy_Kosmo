@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		function 마우스누르기(e){
+			e.style.color = '#ff0000';
+		}
+		function 마우스떼기(e){
+			e.style.color = '#000000'
+		}
+	</script>
+</head>
+<body>
+	<input type="button" value="눌러보세요" onmousedown="마우스누르기(this)" onmouseup="마우스떼기(this)">
+	</body>
+</html>

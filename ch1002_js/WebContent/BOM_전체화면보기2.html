@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	var docV = document.documentElement;
+	function openFullScreenMode() {
+	    if (docV.requestFullscreen)
+	        docV.requestFullscreen();
+	    else if (docV.webkitRequestFullscreen) //Chrome, Safari
+	        docV.webkitRequestFullscreen();
+	    else if (docV.mozRequestFullScreen) // Firefox
+	        docV.mozRequestFullScreen();
+	    else if (docV.msRequestFullscreen) //IE, Edge
+	        docV.msRequestFullscreen();
+	}
+	function closeFullScreenMode() {
+	    if (document.exitFullscreen)
+	    	document.exitFullscreen();
+	    else if (document.webkitExitFullscreen)
+	    	document.webkitExitFullscreen();
+	    else if (document.mozCancelFullScreen)
+	    	document.mozCancelFullScreen();
+	    else if (document.msExitFullscreen)
+	    	document.msExitFullscreen();
+	}
+	</script>
+</body>
+	<input type="button" value="full" onclick="openFullScreenMode()">
+	<input type="button" value="close" onclick="closeFullScreenMode()">
+</html>

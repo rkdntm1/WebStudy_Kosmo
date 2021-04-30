@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		function check(elem, msg){
+			var ex1 = /^[0-9]+$/; //숫자만 체크
+			var ex2 =  /^[A-Za-z0-9]{6,12}$/; //숫자 + 문자 포함 형태 6~12자리 정규식
+			var ex3 = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/; //특수문자 + 문자 + 숫자 포함 형태 8~15자리
+			var ex4 = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //이메일 정규식
+			var ex5 = /^\d{3}-\d{3,4}-\d{4}$/; //핸드폰번호 정규식
+			var ex6 = /^\d{2,3}-\d{3,4}-\d{4}$/; //일반 전화번호 정규식
+			var ex7 = /\s/g; //빈칸확인 정규식
+			var ex8 = /^(?:[0-9]{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[1,2][0-9]|3[0,1]))-[1-4][0-9]{6}$/; // 주민등록번호정규식
+			var ex9 = /^[0-9a-z]+$/; //아이디 체크(숫자, 영문)
+			
+			if (elem.value.match(ex7)){
+				alert('올바르게 입력하셨습니다.');
+				return true;
+			} else {
+				alert(msg);
+				elem.focus();
+				return false;
+			}
+		}
+		
+		
+	</script>
+</head>
+<body>
+	<form action="">
+	입력 : <input type='text' id='phone'>
+	<input type="button" value="확인" onclick="check(document.getElementById('phone'), '제대로 입력하시오')">
+	</form>
+</body>
+</html>

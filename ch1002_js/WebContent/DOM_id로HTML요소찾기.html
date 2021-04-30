@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+		function process1() {
+			var obj = document.getElementById("target");
+			alert(obj.value);
+		}
+		
+		function process2() {
+			var obj = document.myform.text1;
+			alert(obj.value);
+		}
+	</script>
+</head>
+<body>
+	<form name="myform">
+		<input type="text" id="target" name="text1">
+		<input type="submit" value="id버튼" onclick="process1()">
+		<input type="submit" value="name버튼" onclick="process2()">
+	</form>
+</body>
+</html>
