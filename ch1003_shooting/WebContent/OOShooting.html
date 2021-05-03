@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript Game</title>
+<style>
+canvas{
+	border: 1px dotted red;
+	background-color: #fcff00;
+}
+</style>
+<Script src="Bullet.js"></Script>
+<Script src="Cannon.js"></Script>
+<Script src="Target.js"></Script>
+<Script src="Ground.js"></Script>
+
+<script>
+	let frame = 10; 	//초당 10회
+	let bullet, cannon, target, ground;
+	
+	var context;				  //붓
+	var timer;	
+	var score = 0;
+	
+	function init() {
+		canvas = document.getElementById("canvas");
+		context = canvas.getContext("2d"); //붓
+		
+		ground = new Ground(canvas.height - 30);
+		cannon = new Cannon(10, 250);
+		bullet = new Bullet(10);
+		cannon.load(bullet);
+		target = new Target(450, 60, 50, 80);
+		
+		draw();
+	}
+	
+	function draw() {
+		console.info("hi")
+		context.clearRect(0, 0, 500, 300);
+		bullet.drawBall(context);
+		ground.draw(context);
+		target.draw(context);
+	}
+	
+	function start() {
+		init(); 		//다시 쏠 때 처음 위치잡기
+		// 포의 초기 발사 속도 및 각도
+		velocity = new Number(document.getElementById("velocity").value);
+		console.info("velocity" + velocity);
+		angle = new Number(document.getElementById("angle").value);
+		console.info("angle" + angle);
+		
+		cannon.shoot(angle, velocity);
+		
+		timer = setInterval(fly, 1000 / frame);
+	}
+	
+	function fly() {
+		bullet.timeElapsed(1000 / frame);
+		
+		//목표물의 도달
+		if (bullet.touch(target)) {
+			score++;
+			document.getElementById("score").innerHTML = "점수 = " + score;
+			clearInterval(timer);
+		}
+		
+		//땅에 닿아버렸을때
+		if (bullet.touchOnTheGround(ground)) {
+			clearInterval(timer);
+		}
+		draw();
+	}	
+</script>
+</head>
+<body onload="init();">
+	<canvas id="canvas" width="500" height="300"></canvas>
+	<div>
+		속도<input id="velocity" type="number" min="0" max="100" step="1">
+		각도<input id="angle" type="number" min="0" max="89" step="1">
+		<div id="score">점수 = 0</div>
+		<input type="button" value="발사" onclick="start();">
+	</div>
+</body>
+</html>
