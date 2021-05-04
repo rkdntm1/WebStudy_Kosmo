@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="C:\Users\kosmo_15\javaWorkspace\external_Libs\jquery-3.6.0.js"></script>
+
+<script>
+	$(document).on({
+		mousemove: function(e) {
+			$("#log").text("X: " + e.pageX + "Y: " + e.pageY);
+		},
+		click:function(e) {
+			$("#log").text("안녕");
+		}
+	});
+</script>
+</head>
+<body>
+	<div id="log"></div>
+	
+</body>
+</html>

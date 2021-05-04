@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#cart {
+		width:450px;
+		height:100px;
+		padding:10pd;
+		border:1px dotted red;
+	}
+	img {
+		width:120px;
+		height:100px;
+	}
+</style>
+<script type="text/javascript">
+	function handleDS(e) {
+		e.dataTransfer.effectAllowed = "move";
+		e.dataTransfer.setData("Text", e.target.id);
+	}
+	
+	function handleDrop(e) {
+		e.preventDefault();
+		var srcId = e.dataTransfer.getData("Text");
+		
+		e.target.appendChild(document.getElementById(srcId));
+	}
+	
+	function allowDrop(e) {
+		//Browser 기본 동작 막습니다. 
+		e.preventDefault();
+	}
+</script>
+</head>
+<body>
+	<p>원하는 상품을 끌어놓으세요.</p>
+	<div id="cart" ondrop="handleDrop(event)" ondragover="allowDrop(event)"></div>
+	<br>
+	<img id="im1" src="Apple.png" draggable="true" ondragstart="handleDS(event)">
+	<img id="im2" src="Bomb.png" draggable="true" ondragstart="handleDS(event)">
+	<img id="im3" src="Character.png" draggable="true" ondragstart="handleDS(event)">
+</body>
+</html>

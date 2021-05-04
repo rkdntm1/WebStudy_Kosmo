@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="C:\Users\kosmo_15\javaWorkspace\external_Libs\jquery-3.6.0.js"></script>
+
+<script>
+	$(document).ready(function() {
+		$("input").click(function() {
+			//$("#neo").animate({left:'500px'});
+			$("#neo").animate({left:'100px', opacity:'0.5', width:'300px'}); //opacity:불투명도
+		});		
+	});
+</script>
+</head>
+<body>
+	<img id="neo" alt="dd" width="200px" height= "200px" style="position: relative" src="neo.jpg">
+	<input type="button" value="animate">
+</body>
+</html>

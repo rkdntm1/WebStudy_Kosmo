@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="C:\Users\kosmo_15\javaWorkspace\external_Libs\jquery-3.6.0.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h4>학생 명단</h4>
+	<p>
+		이름:<span id="name"></span> &nbsp <!--  -->
+		나이:<span id="age"></span>
+	</p>
+	<p id="json"></p>
+	<p>
+		이름:<span id="name2"></span> &nbsp <!--  -->
+		나이:<span id="age2"></span>
+	</p>
+</body>
+</html>
+<script>
+	var s = [{"name" : "홍길동", "age" : 21}, {"name" : "이순신", "age" : 400}];
+	$('#name').text(s[0].name);
+	$('#age').text(s[0].age);
+	var strsListStd = JSON.stringify(s); // 객체를 JSON형태로 변환 
+	console.info(strsListStd);
+	$('#json').text(strsListStd);
+	
+	var listStudentFromJson = JSON.parse(strsListStd); // JSON 형태를 객체로 생성
+	$('#name2').text(listStudentFromJson[1].name);
+	$('#age2').text(listStudentFromJson[1].age);
+</script>

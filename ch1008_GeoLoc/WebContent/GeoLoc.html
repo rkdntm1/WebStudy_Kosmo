@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="C:\Users\kosmo_15\javaWorkspace\external_Libs\jquery-3.6.0.js"></script>
+</head>
+<body>
+	<button onclick="getGeoLoc();">위치</button>
+	<div id="display"></div>
+	<script>
+		function getGeoLoc() {
+			//navigator : 브라우저 정보
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showLoc);
+			}
+		}
+		
+		//getCurrentPosition에서 불러주는 Callback 함수
+		function showLoc(pos) {
+			$("#display").text("latitude : " + pos.coords.latitude + ", longitude : " + pos.coords.longitude
+					+ ", altitude: " + pos.coords.altitude);
+			
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script
+	src="C:\Users\kosmo_15\javaWorkspace\external_Libs\jquery-3.6.0.js"></script>
+<style>
+div {
+	width: 7em; /* */
+	height: 5em;
+	float: left;
+	margin: 5px;
+	background: red;
+}
+
+.next {
+	background: blue;
+}
+</style>
+<script>
+	$(document).ready(function() {
+		var lastestClickedDiv = null;
+		var modWidth = 50;
+		$("div").click(function() {
+			$(this).width(modWidth).addClass("next");
+			modWidth -= 8;
+			lastestClickedDiv = this;
+		});
+
+		$("#btn1").click(function() {
+			if (lastestClickedDiv != null) {
+				$(lastestClickedDiv).removeClass("next");
+			}
+		});
+	});
+</script>
+
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+	<div class="next">3</div>
+	<div>4</div>
+	<div>5</div>
+	<input id="btn1" type="button" value="ㅇㅇ">
+</body>
+</html>
