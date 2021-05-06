@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>
+		<button onclick="incCounter();"> 눌러보세요 </button>
+	</p>
+	<a href="sessionStorage2.html">sessionStorage2</a>
+</body>
+<script>
+	//전역 변수 스타일은 쓰면 유지보수성 품질이 낮아진다.
+	function incCounter() {
+		if (sessionStorage.loadCt) {
+			sessionStorage.loadCt++;		
+		} else {
+			sessionStorage.loadCt = 1;
+		}
+		document.getElementById("target").innerHTML = sessionStorage.loadCt + "번 클릭"
+	}
+	
+	
+</script>
+</html>

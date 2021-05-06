@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>
+		페이지방문횟수: <span id="count"></span>번
+	</p>
+</body>
+<script>
+	if (!localStorage.loadCnt) {
+		localStorage.loadCnt = 0;		
+	}
+	localStorage.loadCnt = parseInt(localStorage.loadCnt) + 1;
+	document.getElementById("count").textContent = localStorage.loadCnt;
+</script>
+</html>

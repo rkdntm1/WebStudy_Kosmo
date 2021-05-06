@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>
+		<button onclick="incCounter();"> 눌러보세요 </button>
+	</p>
+	<div id="target"></div>
+</body>
+<script>
+	function incCounter() {
+		if (localStorage.loadCt) {
+			localStorage.loadCt++;		
+		} else {
+			localStorage.loadCt = 1;
+		}
+		document.getElementById("target").innerHTML = localStorage.loadCt + "번 클릭"
+	}
+	
+	
+</script>
+</html>

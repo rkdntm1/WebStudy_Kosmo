@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>웹 워커 예제 : 소수 찾기</title>
+<script src="D:\java_kosmo\external_Libs\jquery-3.6.0.js"></script>
+</head>
+<body>
+	<button onclick="start();">시작</button>
+	<button onclick="stop();">종료</button>
+	<p>
+		현재까지 발견된 소수는
+		<output id="result"></output>
+	</p>
+</body>
+<script>
+	var worker;
+	
+	//Java Thread의 run() 함수에 해당합니다.
+	function worker_function() {
+		var provingTargetNumber = 1; 	// 조사 대상 수
+		NEXT_NUM:
+		while(true) {
+			provingTargetNumber += 1;
+			for (var i = 2; i <= Math.sqrt(provingTargetNumber); i++) {
+				if (provingTargetNumber % i == 0) {
+					continue NEXT_NUM;
+				}
+			}
+			// 소수를 발견하면 화면 처리로 전달한다.
+			postMessage(provingTargetNumber);
+		} 
+	}
+	
+	function start() {
+		if (typeof(Worker) !== "undefined") {
+			//시작 버튼을 여러번 눌러도 한개로만 실행
+			if (typeof(worker) == "undefined") {
+				worker = new Worker(URL.createObjectURL(new Blob(["("+worker_function.toString()+")()"], {type: 'text/javascript'})));		
+			}
+			//postMessage 함수에서 Callback 되는 것
+			worker.onmessage = function(event) {
+				$("#result").text(event.data);									
+			};
+		} else {
+			$("#result").text("지원 불가");
+		  }
+	}
+	function stop() {
+		worker.terminate();
+	}
+			
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="D:\java_kosmo\external_Libs\jquery-3.6.0.js"></script>
+</head>
+<body>
+	<input id="btnOfStart" type="button" value="위치 정보 시작">
+	<input id="btnOfStop" type="button" value="위치 정보 중지">
+	<div id="target"></div>
+	
+	<script>
+		$(document).ready(function() {
+			var id;
+			$("#btnOfStart").click(function() {
+				if(navigator.geolocation){
+					id = navigator.geolocation.watchPosition(showGeolocation);
+				}								
+			});
+			
+			function showGeolocation(location) {
+				$("#target").text("(위도: " + location.coords.latitude + ", 경도: "
+						+ location.coords.longitude +  ")");
+			}
+			
+			$("#btnOfStop").click(function() {
+				if(navigator.geolocation) {
+					navigator.geolocation.clearWatch(id);
+				}
+				$("#target").text("끝");
+			});
+		});
+		
+	</script>
+</body>
+</html>
