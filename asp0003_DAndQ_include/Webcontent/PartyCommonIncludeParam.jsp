@@ -4,9 +4,9 @@
 	String usage = request.getParameter("usage");
 %>
 <p>
-	이름 : <input id="name" type="text" value="홍길동" readonly="false">
+	이름 : <input id="name" type="text" value="홍길동" <%=usage %>>
 </p>
 <p>
-	주소 : <input id="addr" type="text" value="한양" readonly="<%=usage %>">
+	주소 : <input id="addr" type="text" value="한양" <%=usage %>>
 </p>
 

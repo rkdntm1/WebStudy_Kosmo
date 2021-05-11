@@ -8,7 +8,7 @@
 </head>
 <body>
 	<jsp:include page="PartyCommonIncludeParam.jsp" flush="false" >
-		<jsp:param value="false" name="usage"/>
+		<jsp:param value="" name="usage"/>
 	</jsp:include>
 </body>
 </html>
